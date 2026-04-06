@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +12,28 @@
   <h1>Pro Store</h1>
 </header>
 
+<!-- Admin Login -->
+<div id="adminLogin">
+  <h2>Admin Login</h2>
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password" type="password">
+  <button id="loginBtn">Login</button>
+</div>
+
+<!-- Admin Product Form -->
+<div id="productForm" style="display:none;">
+  <h2>Add Product</h2>
+  <input id="name" placeholder="Product Name">
+  <input id="price" placeholder="Price">
+  <input type="file" id="imageFile">
+  <button id="addBtn">Add Product</button>
+</div>
+
+<hr>
+
+<!-- Product List -->
 <div id="products" class="grid"></div>
 
 <script type="module" src="index.js"></script>
-
 </body>
 </html>
