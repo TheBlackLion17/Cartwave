@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Dropshipping Store</title>
+<title>Cartwave Store</title>
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
 
 <header>
-<h1>My Dropshipping Store</h1>
+<h1>Cartwave Store</h1>
 <p>UPI + WhatsApp Orders</p>
 </header>
 
@@ -20,7 +20,7 @@
 </nav>
 
 <!-- PRODUCTS -->
-<div class="container" id="productList"></div>
+<div id="productList" class="container"></div>
 
 <!-- CART -->
 <div class="cart-box" id="cartBox">
@@ -30,16 +30,16 @@
 <button onclick="showOrder()">Checkout</button>
 </div>
 
-<!-- ORDER FORM -->
+<!-- ORDER -->
 <div class="order-box" id="orderBox" style="display:none">
 <h2>Order Details</h2>
 
-<input type="text" id="name" placeholder="Your Name">
-<input type="text" id="phone" placeholder="Phone Number">
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="phone" placeholder="Phone">
 <textarea id="address" placeholder="Address"></textarea>
 
 <button onclick="payUPI()">Pay via UPI</button>
-<button onclick="orderWhatsApp()">Order via WhatsApp</button>
+<button onclick="orderWhatsApp()">WhatsApp Order</button>
 </div>
 
 <script src="./js/script.js"></script>
