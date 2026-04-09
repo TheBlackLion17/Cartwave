@@ -61,6 +61,27 @@ function payUPI(){
  window.location.href = url;
 }
 
+// WhatsApp Order
+function orderWhatsApp(){
+ let name = document.getElementById("name").value;
+ let phone = document.getElementById("phone").value;
+ let address = document.getElementById("address").value;
+
+ let productList = "";
+ let total = 0;
+
+ cart.forEach(item=>{
+  productList += `${item.name} - ₹${item.price}%0A`;
+  total += item.price;
+ });
+
+ let message = `🛒 *New Order* %0A%0A👤 Name: ${name}%0A📞 Phone: ${phone}%0A📍 Address: ${address}%0A%0A📦 Products:%0A${productList}%0A💰 Total: ₹${total}`;
+
+ let number = "918547178698"; // CHANGE THIS
+
+ window.open(`https://wa.me/${number}?text=${message}`, "_blank");
+}
+
 // Buy Now
 function buyNow(i){
  cart = [products[i]];
