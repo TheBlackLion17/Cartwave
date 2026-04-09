@@ -4,7 +4,7 @@ function orderWhatsApp(){
  let address = document.getElementById("address").value;
 
  if(!name || !phone || !address){
-  alert("Please fill all details");
+  alert("Fill all details");
   return;
  }
 
@@ -12,29 +12,21 @@ function orderWhatsApp(){
  let total = 0;
 
  cart.forEach(item=>{
-  productList += `${item.name} - ₹${item.price}\n`;
+  productList += item.name + " - ₹" + item.price + "\\n";
   total += item.price;
  });
 
  let message = 
-`🛒 New Order
+"New Order\\n\\n" +
+"Name: " + name + "\\n" +
+"Phone: " + phone + "\\n" +
+"Address: " + address + "\\n\\n" +
+"Products:\\n" + productList + "\\n" +
+"Total: ₹" + total;
 
-👤 Name: ${name}
-📞 Phone: ${phone}
-📍 Address: ${address}
+ let number = "918547178698"; // YOUR NUMBER
 
-📦 Products:
-${productList}
+ let url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
 
-💰 Total: ₹${total}`;
-
- // 🔥 IMPORTANT: Encode message properly
- let encodedMessage = encodeURIComponent(message);
-
- // 🔥 IMPORTANT: Correct number format (no +, no spaces)
- let number = "918547178698"; // CHANGE THIS
-
- let url = `https://wa.me/${number}?text=${encodedMessage}`;
-
- window.open(url, "_blank");
+ window.location.href = url; // 🔥 IMPORTANT CHANGE
 }
