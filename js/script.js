@@ -5,19 +5,16 @@ let products = [
 
 let cart = [];
 
-/* ======================
-   LOAD PRODUCTS
-====================== */
+/* LOAD PRODUCTS */
 function loadProducts() {
   let html = "";
 
   products.forEach((p, i) => {
     html += `
       <div class="card">
-        <img src="${p.img}" alt="${p.name}">
+        <img src="${p.img}">
         <h3>${p.name}</h3>
         <p>₹${p.price}</p>
-
         <button onclick="addToCart(${i})">Add to Cart</button>
         <button onclick="buyNow(${i})">Buy Now</button>
       </div>
@@ -27,17 +24,13 @@ function loadProducts() {
   document.getElementById("productList").innerHTML = html;
 }
 
-/* ======================
-   ADD TO CART
-====================== */
+/* ADD TO CART */
 function addToCart(i) {
   cart.push(products[i]);
   updateCart();
 }
 
-/* ======================
-   UPDATE CART
-====================== */
+/* UPDATE CART */
 function updateCart() {
   let html = "";
   let total = 0;
@@ -52,42 +45,35 @@ function updateCart() {
   document.getElementById("cartCount").innerText = cart.length;
 }
 
-/* ======================
-   TOGGLE CART
-====================== */
+/* CART TOGGLE */
 function toggleCart() {
   document.getElementById("cartBox").classList.toggle("active");
 }
 
-/* ======================
-   SHOW ORDER FORM
-====================== */
+/* SHOW ORDER */
 function showOrder() {
   document.getElementById("orderBox").style.display = "block";
 }
 
-/* ======================
-   UPI PAYMENT
-====================== */
+/* UPI PAYMENT */
 function payUPI() {
   let total = document.getElementById("total").innerText;
+
   let upi = "yourupi@okaxis"; // CHANGE THIS
 
-  let url = `upi://pay?pa=${upi}&pn=MyStore&am=${total}&cu=INR`;
+  let url = `upi://pay?pa=${upi}&pn=Store&am=${total}&cu=INR`;
 
   window.location.href = url;
 }
 
-/* ======================
-   WHATSAPP ORDER (FIXED)
-====================== */
+/* WHATSAPP ORDER */
 function orderWhatsApp() {
   let name = document.getElementById("name").value;
   let phone = document.getElementById("phone").value;
   let address = document.getElementById("address").value;
 
   if (!name || !phone || !address) {
-    alert("Please fill all details");
+    alert("Fill all details");
     return;
   }
 
@@ -100,6 +86,33 @@ function orderWhatsApp() {
   });
 
   let message =
+`🛒 New Order
+
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+
+Products:
+${productList}
+
+Total: ₹${total}`;
+
+  let number = "918547178698"; // CHANGE THIS
+
+  let url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+
+  window.location.href = url;
+}
+
+/* BUY NOW */
+function buyNow(i) {
+  cart = [products[i]];
+  updateCart();
+  toggleCart();
+}
+
+/* START */
+loadProducts();  let message =
 `🛒 New Order
 
 👤 Name: ${name}
