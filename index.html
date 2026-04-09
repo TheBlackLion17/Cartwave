@@ -3,37 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pro Store</title>
+<title>My Dropshipping Store</title>
+
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header>
-  <h1>Pro Store</h1>
+<h1>My Dropshipping Store</h1>
+<p>UPI Payment Available</p>
 </header>
 
-<!-- Admin Login -->
-<div id="adminLogin">
-  <h2>Admin Login</h2>
-  <input id="email" placeholder="Email">
-  <input id="password" type="password" placeholder="Password" type="password">
-  <button id="loginBtn">Login</button>
+<nav>
+<button onclick="toggleCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
+</nav>
+
+<div class="container" id="productList"></div>
+
+<!-- Cart -->
+<div class="cart-box" id="cartBox">
+<h2>Your Cart</h2>
+<div id="cartItems"></div>
+<h3>Total: ₹<span id="total">0</span></h3>
+<button onclick="showOrder()">Checkout</button>
 </div>
 
-<!-- Admin Product Form -->
-<div id="productForm" style="display:none;">
-  <h2>Add Product</h2>
-  <input id="name" placeholder="Product Name">
-  <input id="price" placeholder="Price">
-  <input type="file" id="imageFile">
-  <button id="addBtn">Add Product</button>
+<!-- Order -->
+<div class="order-box" id="orderBox" style="display:none">
+<h2>Order Details</h2>
+<input type="text" id="name" placeholder="Your Name">
+<input type="text" id="phone" placeholder="Phone Number">
+<textarea id="address" placeholder="Address"></textarea>
+
+<button onclick="payUPI()">Pay via UPI</button>
 </div>
 
-<hr>
-
-<!-- Product List -->
-<div id="products" class="grid"></div>
-
-<script type="module" src="index.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
